@@ -4259,7 +4259,7 @@ const fetchTTSWithRetry = async (textToSpeak, voiceSelection, styleDirection = '
     const gender = voiceGenderOf(voiceSelection);
     if (gender) dirs.push(`with a consistent ${gender} voice`);
     const finalPromptText = dirs.length ? `Read the following text ${dirs.join(', ')}:\n${textToSpeak}` : textToSpeak;
-    const apiKey = '';
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
     const payload = {
         contents: [{ parts: [{ text: finalPromptText }] }],
@@ -10015,7 +10015,7 @@ export default function VideoEditor() {
         setIsAiAutoScripting(true);
         setFileError(null);
         try {
-            const apiKey = '';
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const transitionKeys = Object.keys(TRANSITIONS);
             const animationKeys = Object.keys(ANIMATIONS).filter((k) => k !== 'none');
@@ -10101,7 +10101,7 @@ export default function VideoEditor() {
         setIsAssistantProcessing(true);
         setAssistantError(null);
         try {
-            const apiKey = '';
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const transitionKeys = Object.keys(TRANSITIONS);
             const animationKeys = Object.keys(ANIMATIONS);
@@ -10184,7 +10184,7 @@ export default function VideoEditor() {
         setRegeneratingSlideId(slideId);
         setFileError(null);
         try {
-            const apiKey = '';
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const animationKeys = Array.from(new Set([presetAnimTogether, presetAnimCascade, presetAnimNarrator])).filter(k => k !== 'none');
             if (animationKeys.length === 0) animationKeys.push('fadeIn');
@@ -10527,7 +10527,7 @@ export default function VideoEditor() {
         setIsAutoAnimating(true);
         setFileError(null);
         try {
-            const apiKey = '';
+            const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const animationKeys = Object.keys(ANIMATIONS).filter((k) => k !== 'none');
             const slidesSummary = slides.map((s) => ({
